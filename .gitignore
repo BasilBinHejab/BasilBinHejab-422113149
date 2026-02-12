@@ -1,0 +1,28 @@
+*.log
+*.pot
+*.pyc
+__pycache__/
+*.bak
+*.py[cod]
+*$py.class
+pip-log.txt
+pip-delete-this-directory.txt
+.ipynb_checkpoints
+.python-version
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django
+**/migrations
+*.sqlite3
+
+# OS
+.DS_Store
+.history
