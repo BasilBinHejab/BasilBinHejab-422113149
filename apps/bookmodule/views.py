@@ -7,4 +7,4 @@ def index(request):
     return render(request, 'bookmodule/index.html')
 
 def index2(request, val1=0):
-    return HttpResponse("value1 = " + str(val1))
+    return HttpResponse(f'value1 = {val1}')
