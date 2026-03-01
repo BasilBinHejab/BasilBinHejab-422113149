@@ -1,3 +1,10 @@
+### ⚙️ Setup Instructions
+```bash
+pip install -r libraryproject/requirements.txt
+python libraryproject/manage.py migrate
+python libraryproject/manage.py runserver
+```
+
 ### 🔗 Lab 4 Output Links (Localhost)
 *   **Home Page (Index):** [http://127.0.0.1:8000/books/](http://127.0.0.1:8000/books/)
 *   **List Books:** [http://127.0.0.1:8000/books/list_books/](http://127.0.0.1:8000/books/list_books/)
