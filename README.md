@@ -1,3 +1,12 @@
+### 🔗 Lab 6 Output Links (Localhost)
+*   **Search Page:** [http://127.0.0.1:8000/books/search/](http://127.0.0.1:8000/books/search/)
+
+### 📁 Quick Access to Lab 6 Code
+*   [Search View (views.py)](libraryproject/apps/bookmodule/views.py)
+*   [Search URL (urls.py)](libraryproject/apps/bookmodule/urls.py)
+*   [Search Template (search.html)](libraryproject/apps/templates/bookmodule/search.html)
+*   [Results Template (bookList.html)](libraryproject/apps/templates/bookmodule/bookList.html)
+
 ### ⚙️ Setup Instructions
 ```bash
 pip install -r libraryproject/requirements.txt
