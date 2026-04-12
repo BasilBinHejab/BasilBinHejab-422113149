@@ -26,10 +26,14 @@ def listing(request):
 def tables(request):
     return render(request, 'bookmodule/tables.html')
 
+def simple_query(request):
+    mybooks = Book.objects.filter(title__icontains='continuous').order_by('id')[:1]
+    return render(request, 'bookmodule/bookList.html', {'books': mybooks})
+
 def __getBooksList():
-    book1 = {'id':12344321, 'title':'Continuous Delivery', 'author':'J.Humble and D. Farley'}
-    book2 = {'id':56788765, 'title':'Reversing: Secrets of Reverse Engineering', 'author':'E. Eilam'}
-    book3 = {'id':43211234, 'title':'The Hundred-Page Machine Learning Book', 'author':'Andriy Burkov'}
+    book1 = {'id': 1, 'title': 'Continuous Delivery', 'author': 'J.Humble and D. Farley', 'price': 120.00, 'edition': 3}
+    book2 = {'id': 2, 'title': 'Reversing: Secrets of Reverse Engineer', 'author': 'E. Eilam', 'price': 97.00, 'edition': 2}
+    book3 = {'id': 3, 'title': 'The Hundred-Page Machine Learning Book', 'author': 'Andriy Burkov', 'price': 100.00, 'edition': 4}
     return [book1, book2, book3]
 
 def search(request):
@@ -49,13 +53,13 @@ def search(request):
         return render(request, 'bookmodule/bookList.html', {'books':newBooks})
     return render(request, 'bookmodule/search.html')
 
-def simple_query(request):
-    mybooks = Book.objects.filter(title__icontains='and') # <- multiple objects
-    return render(request, 'bookmodule/bookList.html', {'books':mybooks})
-
 def complex_query(request):
-    mybooks = Book.objects.filter(author__isnull = False).filter(title__icontains='and').filter(edition__gte = 2).exclude(price__lte = 100)[:10]
-    if len(mybooks)>=1:
-        return render(request, 'bookmodule/bookList.html', {'books':mybooks})
+    mybooks = Book.objects.filter(author__isnull=False).filter(edition__gte=2).exclude(price__lt=100)[:10]
+    if len(mybooks) >= 1:
+        return render(request, 'bookmodule/bookList.html', {'books': mybooks})
     else:
         return render(request, 'bookmodule/index.html')
+
+
+def lookup_query(request):
+    return complex_query(request)
