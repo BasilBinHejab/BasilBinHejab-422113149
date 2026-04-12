@@ -12,9 +12,9 @@ This repository contains the completed tasks for Lab 6 (Django Forms) and Lab 7 
 - **Database Schema**: Defined the `Book` model in `models.py` with fields: `title`, `author`, `price`, and `edition`.
 - **Migrations**: Performed `makemigrations` and `migrate` to set up the SQLite database.
 - **Data Seeding**: Populated the database with initial book records and additional mock data to simulate a real-world scenario (Mockaroo).
-- **Queries**:
-    - **Simple Query**: Implemented `/books/simple/query` to filter books containing "and" in the title.
-    - **Complex Query**: Implemented `/books/complex/query` using advanced filters (`isnull`, `gte`, `exclude`, and slicing).
+- **Queries & Links**:
+    - **Simple Query**: [http://127.0.0.1:8000/books/simple/query](http://127.0.0.1:8000/books/simple/query) - Filters books containing "and" in the title.
+    - **Complex Query**: [http://127.0.0.1:8000/books/complex/query](http://127.0.0.1:8000/books/complex/query) - Uses advanced filters (`isnull`, `gte`, `exclude`, and slicing).
 - **Template Update**: Updated `bookList.html` to dynamically display model data (ID and Title).
 
 ## How to Run:
