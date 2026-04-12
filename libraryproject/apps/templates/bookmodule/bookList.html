@@ -4,8 +4,9 @@
 <h2>List of Filtered Books</h2>
 {% if books %}
     <ul>
-    {% for book in books %}
-        <li>{{ book.title }} by {{ book.author }}</li>
+    {% for obj in books %}
+        <li>ID: {{obj.id}}, Title: {{obj.title}}</li>
+        <hr>
     {% endfor %}
     </ul>
 {% else %}
