@@ -3,28 +3,26 @@
 This repository contains the completed tasks for Lab 6 (Django Forms) and Lab 7 (Django Models Part 1).
 
 ## Tasks Completed:
+
 ### Lab 6: Django Forms
-- **search.html**: Created a search form template with CSS styling and Font Awesome icons.
-- **Form Handling**: Implemented logic in `views.py` to handle POST requests, filtering a static list of books based on keywords and selection (Title/Author).
-- **URL Configuration**: Registered `/books/search/` route.
+- **Build HTML form template**: Created search.html using the master template base.html, including Font Awesome and custom CSS.
+- **View function and URL**: Added search view in views.py and registered /books/search/.
+- **Form Handling**: Implemented logic to handle POST data, filtering a static book list based on keywords and checkboxes.
+- **Results Display**: Created bookList.html to list filtered books.
 
 ### Lab 7: Django Models (Part 1)
-- **Database Schema**: Defined the `Book` model in `models.py` with fields: `title`, `author`, `price`, and `edition`.
-- **Migrations**: Performed `makemigrations` and `migrate` to set up the SQLite database.
-- **Data Seeding**: Populated the database with initial book records and additional mock data to simulate a real-world scenario (Mockaroo).
-- **Queries & Links**:
-    - **Simple Query**: [http://127.0.0.1:8000/books/simple/query](http://127.0.0.1:8000/books/simple/query) - Filters books containing "and" in the title.
-    - **Complex Query**: [http://127.0.0.1:8000/books/complex/query](http://127.0.0.1:8000/books/complex/query) - Uses advanced filters (`isnull`, `gte`, `exclude`, and slicing).
-- **Template Update**: Updated `bookList.html` to dynamically display model data (ID and Title).
+- **Database Schema**: Defined the Book model in models.py with title, author, price, and edition.
+- **Migrations**: Ran makemigrations and migrate to create the database table.
+- **Data Entry**: Inserted the specified initial books and additional mock data from Mockaroo.
+- **Simple Queries**: Added simple_query view to filter books containing 'and' in the title.
+- **Complex Queries**: Added complex_query view using advanced lookup conditions like isnull, icontains, gte, and exclude.
+- **Result Links**:
+    - **Simple Query**: http://127.0.0.1:8000/books/simple/query
+    - **Complex Query**: http://127.0.0.1:8000/books/complex/query
 
-## How to Run:
-1. Ensure you have Django installed.
-2. Run migrations: `python manage.py migrate`
-3. Start the server: `python manage.py runserver`
-4. Access the features at:
-    - Search: `http://127.0.0.1:8000/books/search/`
-    - Simple Query: `http://127.0.0.1:8000/books/simple/query`
-    - Complex Query: `http://127.0.0.1:8000/books/complex/query`
-
----
-**Note:** The database `db.sqlite3` is already migrated and contains the required data for testing.
+## Running the Server:
+To view the application, run:
+```bash
+python manage.py runserver
+```
+Then navigate to the links above.
