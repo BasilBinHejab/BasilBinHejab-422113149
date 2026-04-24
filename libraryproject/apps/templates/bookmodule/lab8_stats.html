@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Book Statistics</h2>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Total Books:</strong> {{ stats.count }}</li>
+        <li class="list-group-item"><strong>Total Price:</strong> {{ stats.total_price }}</li>
+        <li class="list-group-item"><strong>Average Price:</strong> {{ stats.avg_price|stringformat:".2f" }}</li>
+        <li class="list-group-item"><strong>Maximum Price:</strong> {{ stats.max_price }}</li>
+        <li class="list-group-item"><strong>Minimum Price:</strong> {{ stats.min_price }}</li>
+    </ul>
+</div>
+{% endblock %}

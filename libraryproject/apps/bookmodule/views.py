@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Book
+from .models import Book, Address, Student
+from django.db.models import Q
+from django.db.models import Count, Sum, Avg, Max, Min
 
 def index(request):
     return render(request, 'bookmodule/index.html')
@@ -64,3 +66,35 @@ def lookup_query(request):
     if len(mybooks) >= 1:
         return render(request, 'bookmodule/bookList.html', {'books': mybooks})
     return render(request, 'bookmodule/index.html')
+
+def lab8_task1(request):
+    mybooks = Book.objects.filter(price__lte=80)
+    return render(request, 'bookmodule/bookList.html', {'books': mybooks})
+
+def lab8_task2(request):
+    mybooks = Book.objects.filter(Q(edition__gt=3) & (Q(title__icontains='qu') | Q(author__icontains='qu')))
+    return render(request, 'bookmodule/bookList.html', {'books': mybooks})
+
+def lab8_task3(request):
+    mybooks = Book.objects.filter(~Q(edition__gt=3) & ~Q(title__icontains='qu') & ~Q(author__icontains='qu'))
+    return render(request, 'bookmodule/bookList.html', {'books': mybooks})
+
+def lab8_task4(request):
+    mybooks = Book.objects.all().order_by('title')
+    return render(request, 'bookmodule/bookList.html', {'books': mybooks})
+
+def lab8_task5(request):
+    stats = Book.objects.aggregate(
+        count=Count('id'),
+        total_price=Sum('price'),
+        avg_price=Avg('price'),
+        max_price=Max('price'),
+        min_price=Min('price')
+    )
+    return render(request, 'bookmodule/lab8_stats.html', {'stats': stats})
+
+def lab8_task7(request):
+    # Get cities with the count of students in each
+    # Addresses that have students
+    city_counts = Address.objects.annotate(student_count=Count('student'))
+    return render(request, 'bookmodule/lab8_task7.html', {'city_counts': city_counts})
