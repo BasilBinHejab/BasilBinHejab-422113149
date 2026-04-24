@@ -2,6 +2,8 @@
 <div class="topnav">
     <a class="{% if url_name == 'books.index' %}active{% endif %}" href="{% url 'books.index' %}">Home</a>
     <a class="{% if url_name == 'books.list_books' %}active{% endif %}" href="{% url 'books.list_books' %}">List Books</a>
+    <a class="{% if url_name == 'books.simple_query' %}active{% endif %}" href="{% url 'books.simple_query' %}">Simple Query</a>
+    <a class="{% if url_name == 'books.lookup_query_alias' %}active{% endif %}" href="{% url 'books.lookup_query_alias' %}">Lookup Query</a>
     <a class="{% if url_name == 'books.aboutus' %}active{% endif %}" href="{% url 'books.aboutus' %}">About</a>
 </div>
 {% endwith %}

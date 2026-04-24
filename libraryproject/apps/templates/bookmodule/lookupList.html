@@ -1,0 +1,45 @@
+{% extends "layouts/base.html" %}
+{% block title %} Lookup Results {% endblock title %}
+{% block content %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+</style>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Edition</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for obj in books %}
+        <tr>
+            <td>{{ obj.id }}</td>
+            <td>{{ obj.title }}</td>
+            <td>{{ obj.author }}</td>
+            <td>{{ obj.price }}</td>
+            <td>{{ obj.edition }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

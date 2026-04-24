@@ -6,7 +6,8 @@ def index(request):
     return render(request, 'bookmodule/index.html')
 
 def list_books(request):
-    return render(request, 'bookmodule/list_books.html')
+    mybooks = Book.objects.all().order_by('id')
+    return render(request, 'bookmodule/bookList.html', {'books': mybooks})
 
 def viewbook(request, bookId):
     return render(request, 'bookmodule/one_book.html')
@@ -27,7 +28,7 @@ def tables(request):
     return render(request, 'bookmodule/tables.html')
 
 def simple_query(request):
-    mybooks = Book.objects.filter(title__icontains='continuous').order_by('id')[:1]
+    mybooks = Book.objects.filter(title__icontains='and')
     return render(request, 'bookmodule/bookList.html', {'books': mybooks})
 
 def __getBooksList():
@@ -53,13 +54,13 @@ def search(request):
         return render(request, 'bookmodule/bookList.html', {'books':newBooks})
     return render(request, 'bookmodule/search.html')
 
-def complex_query(request):
-    mybooks = Book.objects.filter(author__isnull=False).filter(edition__gte=2).exclude(price__lt=100)[:10]
-    if len(mybooks) >= 1:
-        return render(request, 'bookmodule/bookList.html', {'books': mybooks})
-    else:
-        return render(request, 'bookmodule/index.html')
-
+def insert_books():
+    Book.objects.create(title="Continuous Delivery", author="J.Humble and D. Farley", price=120.00, edition=3)
+    Book.objects.create(title="Reversing: Secrets of Reverse Engineer", author="E. Eilam", price=97.00, edition=2)
+    Book.objects.create(title="The Hundred-Page Machine Learning Book", author="Andriy Burkov", price=100.00, edition=4)
 
 def lookup_query(request):
-    return complex_query(request)
+    mybooks = Book.objects.filter(author__isnull=False).filter(title__icontains='and').filter(edition__gte=2).exclude(price__lte=100)[:10]
+    if len(mybooks) >= 1:
+        return render(request, 'bookmodule/bookList.html', {'books': mybooks})
+    return render(request, 'bookmodule/index.html')
