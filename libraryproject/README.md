@@ -1,18 +1,14 @@
-![alt text](AdobeExpressPhotos_acbb14e46c344aa19b20e31ca55f54ef_CopyEdited.png)# Library Project - Lab 6 & Lab 7 Completion
+# Library Project - Lab 6, Lab 7 & Lab 8 Completion
 
-This repository contains the completed tasks for Lab 6 (Django Forms) and Lab 7 (Django Models Part 1).
+This repository contains the completed tasks for Lab 6 (Django Forms), Lab 7 (Django Models Part 1), and Lab 8 (Django Models Part 2).
 
-## Tasks Completed:
-
-### Lab 6: Django Forms
+## Lab 6: Django Forms
 - **Build HTML form template**: Created search.html using the master template base.html, including Font Awesome and custom CSS.
 - **View function and URL**: Added search view in views.py and registered /books/search/.
 - **Form Handling**: Implemented logic to handle POST data, filtering a static book list based on keywords and checkboxes.
 - **Results Display**: Created bookList.html to list filtered books.
 
-## lap7
-
-### Lab 7: Django Models (Part 1)
+## Lab 7: Django Models (Part 1)
 - **Database Schema**: Defined the Book model in models.py with title, author, price, and edition.
 - **Migrations**: Ran makemigrations and migrate to create the database table.
 - **Data Entry**: Inserted the specified initial books.
