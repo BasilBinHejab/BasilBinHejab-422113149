@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<h2>Task 6: Publisher's Book Count (Price > 50, 1 <= Qty < 5)</h2>
+<table border="1">
+    <tr>
+        <th>Publisher Name</th>
+        <th>Filtered Book Count</th>
+    </tr>
+    {% for publisher in publishers %}
+    <tr>
+        <td>{{ publisher.name }}</td>
+        <td>{{ publisher.book_count }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
