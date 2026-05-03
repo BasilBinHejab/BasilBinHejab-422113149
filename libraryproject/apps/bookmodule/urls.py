@@ -26,4 +26,16 @@ urlpatterns = [
     path('lab9/task4', views.lab9_task4, name='books.lab9_task4'),
     path('lab9/task5', views.lab9_task5, name='books.lab9_task5'),
     path('lab9/task6', views.lab9_task6, name='books.lab9_task6'),
+    
+    # Lab 10
+    path('lab10/part1/listbooks', views.lab10_listbooks, name='books.lab10_listbooks'),
+    path('lab10/part1/addbook', views.lab10_addbook, name='books.lab10_addbook'),
+    path('lab10/part1/editbook/<int:bookId>', views.lab10_editbook, name='books.lab10_editbook'),
+    path('lab10/part1/deletebook/<int:bookId>', views.lab10_deletebook, name='books.lab10_deletebook'),
+
+    # Part 2: CRUD with Django Forms
+    path('lab10/part2/listbooks', views.lab10_listbooks_v2, name='books.lab10_listbooks_v2'),
+    path('lab10/part2/addbook', views.lab10_addbook_v2, name='books.lab10_addbook_v2'),
+    path('lab10/part2/editbook/<int:bookId>', views.lab10_editbook_v2, name='books.lab10_editbook_v2'),
+    path('lab10/part2/deletebook/<int:bookId>', views.lab10_deletebook_v2, name='books.lab10_deletebook_v2'),
 ]
